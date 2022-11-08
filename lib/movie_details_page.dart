@@ -9,7 +9,9 @@ class MovieDetailsPage extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     
     return Scaffold(
-      body: Container(),
+      body: ListView(
+        children: [],
+      ),
     );
   }
 }

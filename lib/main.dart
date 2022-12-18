@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_project/movie_details_page.dart';
+import 'package:movie_project/movie_list.dart';
 
 void main() {
   runApp(const MovieApp());
@@ -25,7 +26,7 @@ class MovieApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.deepOrange,
       ),
-      home: const MovieDetailsPage(),
+      home: const MovieList(),
     );
   }
 }

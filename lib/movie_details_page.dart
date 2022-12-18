@@ -1,20 +1,36 @@
 import 'package:flutter/material.dart';
 
+import 'movie_class.dart';
+
 class MovieDetailsPage extends StatelessWidget {
-  const MovieDetailsPage({Key? key}) : super(key: key);
+  MovieDetailsPage(this.movie);
+
+  Movie movie;
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    String description =
-        'Professor Albus Dumbledore knows the powerful Dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts Magizoologist Newt Scamander to lead an intrepid team of wizards, witches and one brave Muggle baker on a dangerous mission, where they encounter old and new beasts and clash with Grindelwald\'s growing legion of followers. But with the stakes so high, how long can Dumbledore remain on the sidelines?';
 
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: ListView(
         children: [
-          Image.asset(
-            'images/movie-poster.jpg',
+          // Image.asset(
+          //   'images/movie-poster.jpg',
+          //   width: width,
+          //   height: width,
+          //   fit: BoxFit.cover,
+          // ),
+          Image.network(
+            movie.imageLink,
             width: width,
             height: width,
             fit: BoxFit.cover,
@@ -27,8 +43,8 @@ class MovieDetailsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Column(
-                      children: const [
-                        Text('6.8/10'),
+                      children: [
+                        Text('${movie.ratingIMDb}/10'),
                         Text(
                           'IMDb',
                           style: TextStyle(
@@ -38,9 +54,9 @@ class MovieDetailsPage extends StatelessWidget {
                       ],
                     ),
                     Column(
-                      children: const [
+                      children: [
                         Text(
-                          '63%',
+                          '${movie.ratingRottenTomatoes}%',
                         ),
                         Text(
                           'Rotten Tomatoes',
@@ -51,8 +67,8 @@ class MovieDetailsPage extends StatelessWidget {
                       ],
                     ),
                     Column(
-                      children: const [
-                        Text('4/10'),
+                      children: [
+                        Text('${movie.ratingIGN}/10'),
                         Text(
                           'IGN',
                           style: TextStyle(
@@ -63,25 +79,38 @@ class MovieDetailsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Text(
-                    'Fantastic Beasts: The Secrets Of Dumbledore',
+                    movie.name,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 24.0,
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Chip(label: Text('Fantasy')),
-                    SizedBox(
-                      width: 8.0,
-                    ),
-                    Chip(label: Text('Adventure')),
-                  ],
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children:  [
+                //     Chip(label: Text(movie.genres[0])),
+                //     SizedBox(
+                //       width: 8.0,
+                //     ),
+                //     Chip(label: Text(movie.genres[1])),
+                //   ],
+                // ),
+                SizedBox(
+                  height: 40.0,
+                  child: ListView.builder(
+                    itemCount: movie.genres.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Chip(label: Text(movie.genres[index])),
+                      );
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -118,7 +147,7 @@ class MovieDetailsPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  description,
+                  movie.description,
                   textAlign: TextAlign.center,
                 ),
               ],

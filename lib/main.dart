@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_project/movie_details_page.dart';
+import 'package:movie_project/movie_list.dart';
 
 void main() {
   runApp(const MovieApp());
@@ -23,9 +24,9 @@ class MovieApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
       ),
-      home: const MovieDetailsPage(),
+      home: const MovieList(),
     );
   }
 }

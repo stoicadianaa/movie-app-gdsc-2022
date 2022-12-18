@@ -1,6 +1,10 @@
 # movie_project
 
-A new Flutter project.
+A simple movie app, the first app of the Mobile Team in Google Developer Student Club UPT.
+
+This is the project's inspiration:
+
+![Project inspiration](https://cdn.dribbble.com/userupload/2646255/file/original-3c5ac7d7df4936225635b9467b7edf6f.png?compress=1&resize=1504x1128)
 
 ## Getting Started
 

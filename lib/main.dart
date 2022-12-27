@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_project/movie_details_page.dart';
 import 'package:movie_project/movie_list.dart';
 
 void main() {
@@ -12,14 +11,17 @@ class MovieApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData.from(
+          colorScheme: const ColorScheme.light(primary: Colors.deepOrange)),
+      darkTheme: ThemeData.from(
+        colorScheme: const ColorScheme.dark(
+          primary: Colors.deepOrange,
+        ),
+      ),
       themeMode: ThemeMode.system,
       home: const MovieList(),
     );
   }
 }
-

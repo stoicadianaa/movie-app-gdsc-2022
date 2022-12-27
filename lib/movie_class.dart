@@ -9,4 +9,5 @@ class Movie {
   List<String> genres;
   String description;
   String imageLink;
+
 }

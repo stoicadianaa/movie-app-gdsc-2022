@@ -3,7 +3,6 @@ import 'package:movie_project/movie_genres.dart';
 import 'package:movie_project/widget/movie_list_tile.dart';
 import 'movie_class.dart';
 import 'movie_data.dart';
-import 'movie_details_page.dart';
 
 class MovieList extends StatefulWidget {
   const MovieList({Key? key}) : super(key: key);

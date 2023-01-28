@@ -11,4 +11,5 @@ class Movie {
   List<MovieGenres> genres;
   String description;
   String imageLink;
+
 }

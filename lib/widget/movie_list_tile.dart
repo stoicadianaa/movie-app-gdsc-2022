@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_project/movie_genres.dart';
 import '../movie_class.dart';
 import '../movie_details_page.dart';
 
@@ -65,7 +66,7 @@ class MovieListTile extends StatelessWidget {
                       height: 8.0,
                     ),
                     Text(
-                      movie.genres.join(", "),
+                      movie.genres.map((e) => e.getDisplayName()).join(", "),
                       style: TextStyle(color: Colors.grey),
                     ),
                     SizedBox(
